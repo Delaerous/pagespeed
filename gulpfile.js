@@ -15,6 +15,7 @@ const svgo = require("gulp-svgo");
 const svgSprite = require("gulp-svg-sprite");
 const gulpif = require("gulp-if");
 const imagemin = require("gulp-imagemin");
+const webp = require('gulp-webp');
 
 const env = process.env.NODE_ENV;
 
@@ -43,6 +44,7 @@ task("content-min", () => {
         imagemin.optipng({ optimizationLevel: 5 }),
       ])
     )
+    .pipe(webp())
     .pipe(dest(`${DIST_PATH}/images`));
 });
 
